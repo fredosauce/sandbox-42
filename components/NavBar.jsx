@@ -12,12 +12,12 @@ const NavBar = ({ navState }) => {
     router.push(dest);
   };
   const myName = 'fredo chen';
-  let fontSize = 'sm:text-5xl text-4xl';
+  let fontSize = 'sm:text-3xl text-2xl';
   let classMods = 'mt-5';
   if (navState === 'home') {
-    classMods = 'mt-11';
+    classMods = 'mt-5';
   } else {
-    fontSize = 'sm:text-4xl text-3xl';
+    fontSize = 'sm:text-3xl text-2xl';
     classMods += ' default-height';
   }
   const navComponents = navLinks.map((item, index) => {

@@ -13,12 +13,12 @@ const Info = () => {
         layoutId='subNavBar'
       >
         <motion.div
-          class='text-7xl py-3'
+          class='text-6xl py-3'
           initial={{ opacity: 0, translateX: '-100px' }}
           animate={{ opacity: 1, translateX: '0px' }}
           transition={{ delay: 0.3, duration: 0.3 }}
         >
-          info
+          about me
         </motion.div>
       </motion.div>
 
@@ -29,21 +29,26 @@ const Info = () => {
         transition={{ delay: 0.35, duration: 0.3 }}
       >
         <p class='text-lg tracking-wide'>
-          I am a front-end software engineer and creative developer with years
-          of experience in the open-source community and digital advertising
-          industry.
+          I am a front-end software engineer and creative web developer with
+          years of experience in the open-source community and digital
+          advertising industry. I make websites, web apps and interactive
         </p>
         <p class='text-lg mt-6 tracking-wide'>
-          Most recently, I built the GUI for ReacType, a prototyping tool that
-          allows users to quickly mock up layouts and export them as React
-          components or NextJS application.
+          Most recently, I've been contributing to ReacType, a visual
+          prototyping tool that allows users to quickly mock up and export
+          layouts as pure React components, or as code templates for a Next.js
+          project.
         </p>
         <p class='text-lg mt-6 tracking-wide'>
           Prior to that, I crafted web sites, apps, and interactive digital
           experiences at RPA for a variety of well-known brands, including
           Honda, <span class='italic'>ampm</span>, Arco, and SouthWest Airlines.
         </p>
-        <p class='text-lg mt-6 tracking-wide'></p>
+        <p class='text-lg mt-6 tracking-wide'>
+          I'm resourceful, collaborative, I pay attention to detail while always
+          having big picture in mind. I'm comfortable picking up new
+          technologies and experimenting with libraries.
+        </p>
       </motion.div>
     </div>
   );

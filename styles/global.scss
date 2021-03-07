@@ -1,19 +1,137 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-$max-width: 720px;
+$max-width: 1024px;
 $min-width: 360px;
 
 html {
-  background-color: #f3f3ff;
-  color: #101011;
+  background-color: #171516dc;
+  color: #f3f3ff;
+}
+
+.tech-pill {
+}
+
+.work-logo-wrapper {
+  max-width: 250px;
+}
+
+.work-media-wrapper {
+  top: 20%;
+  transform: scale(2.25);
+}
+
+.gray-filter {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
 }
 
 .nav-main,
 .outer-wrapper {
   max-width: $max-width;
   min-width: $min-width;
+}
+
+.work-detail-background {
+  height: 100vh;
+  will-change: opacity;
+}
+
+.work-detail-outer {
+  max-width: ($max-width + 55px);
+}
+
+.media-box {
+  max-width: 600px;
+}
+
+.text-box {
+  //min-width: 375px;
+  max-width: 475px;
+}
+
+.work-item {
+  position: relative;
+  height: 280px;
+  max-width: 35%;
+  min-width: 200px;
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  will-change: opacity;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  //max-width: 990px;
+}
+
+.overlay a {
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.work-item-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 44, 44, 0.8);
+}
+
+.work-item-detail-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.work-item-wrapper.open {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 720px) {
+  .work-item-wrapper.open {
+    margin-top: 5px;
+  }
+}
+
+.open .work-media-wrapper,
+.open .work-title-wrapper {
+  width: 0;
+  opacity: 0;
+}
+
+.open .work-item-detail-wrapper {
+  height: 0;
+}
+
+.page-wrapper {
+}
+.page-wrapper::-webkit-scrollbar {
+}
+
+.work-section ul {
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.work-section ul::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .content-box {
@@ -30,7 +148,26 @@ html {
   background-color: white;
 }
 
+.hero-section {
+  background-color: #555;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
+  font-family: system-ui, 'Univers LT Std', Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+.work-detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@media (max-width: $max-width) {
+  .media-box {
+    max-width: 500px;
+    margin-bottom: 20px;
+  }
 }

@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       'strong-sans': ['Futura', 'Helvetica', 'Arial', 'sans-serif'],
       'stats-sans': ['Arial', 'sans-serif'],
+      'stat-serif': ['MonoLisa', 'serif'],
     },
     extend: {
       animation: {

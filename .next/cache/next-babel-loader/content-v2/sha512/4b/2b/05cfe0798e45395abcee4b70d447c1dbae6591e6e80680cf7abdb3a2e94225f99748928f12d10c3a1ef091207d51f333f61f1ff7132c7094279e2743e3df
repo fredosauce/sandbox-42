@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\n\nvar Wrapper = function Wrapper(_ref) {\n  var children = _ref.children;\n  return /*#__PURE__*/_jsx(\"div\", {\n    \"class\": \"mx-auto custom-wrapper p-4\",\n    children: children\n  });\n};\n\nexport default Wrapper;","map":null,"metadata":{},"sourceType":"module"}

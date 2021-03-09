@@ -40,7 +40,7 @@ const Overlay = ({ isSelected }) => (
 
 const List = ({ workItems, match }) => {
   return (
-    <ul class='pl-4 flex flex-row space-x-6'>
+    <ul class='pl-4 flex flex-col space-y-6'>
       {workItems.map((item, index) => {
         // const isSelected =
         const isSelected = match.params.id === item.id;
@@ -49,11 +49,11 @@ const List = ({ workItems, match }) => {
 
         const y = useMotionValue(0);
         return (
-          <li class='work-item' key={key}>
+          <li class='work-item ml-4' key={key}>
             <Overlay isSelected={isSelected} />
             <motion.div
-              className={`overflow-hidden relative work-item-wrapper  border-white border-2 hover:border-yellow-200 duration-400 ${
-                isSelected && 'open'
+              className={`overflow-hidden relative work-item-wrapper  border-transparent duration-400 rounded-md ${
+                isSelected && 'open rounded-3xl'
               }`}
               transition={isSelected ? openSpring : closeSpring}
               layout
@@ -66,31 +66,35 @@ const List = ({ workItems, match }) => {
                   layout
                 />
               </div>
-              <motion.div class='flex flex-col flex-nowrap items-center work-item-detail-wrapper cursor-pointer ease-out space-x-4 bg-black bg-opacity-70 hover:bg-opacity-30 relative z-0 justify-center'>
-                <div class='work-title-wrapper pt-6'>
+              <motion.div
+                class={`flex flex-col flex-nowrap items-center work-item-detail-wrapper cursor-pointer ease-out space-x-4 bg-black bg-opacity-70 hover:bg-opacity-30 relative z-0 justify-center ${
+                  isSelected && ''
+                }`}
+                layout
+              >
+                <div class='work-title-wrapper'>
                   <Link to={'/' + item.id}>
                     <h1
-                      class='text-2xl font-semibold cursor-pointer '
+                      class='text-xl font-semibold italic cursor-pointer tracking-wider spectral'
                       dangerouslySetInnerHTML={{ __html: item.title }}
                     ></h1>
                   </Link>
                 </div>
               </motion.div>
               <motion.div
-                class='px-8 lg:my-48 work-detail-outer mx-auto flex flex-col-reverse items-center lg:flex-row lg:space-x-8 my-16'
+                class='px-8 lg:my-24 work-detail-outer mx-auto flex flex-col-reverse lg:flex-row items-center lg:space-x-8 my-16'
                 transition={{ duration: 0.3 }}
                 layout
               >
-                <motion.div class='text-box' layout>
+                <motion.div class='text-box'>
                   <h1
-                    class='text-3xl cursor-pointer my-1'
+                    class='text-3xl cursor-pointer my-1 spectral inline-block mr-4'
                     dangerouslySetInnerHTML={{ __html: item.title }}
-                  ></h1>
+                  ></h1>{' '}
                   <p class='text-gray-400 text-xl'>
                     {item.group} &nbsp;{item.year}&nbsp;{' '}
-                    <Links selectedWork={item} />
                   </p>
-                  <p class='text-md leading-5 mt-4'>{item.blurb}</p>
+                  <p class='text-base leading-5 mt-4'>{item.blurb}</p>
                   <div class='mt-6 flex flex-row flex-wrap space-x-5 '>
                     {item.tech.map((techName, index) => (
                       <Pill text={techName} key={techName + index} />
@@ -98,7 +102,8 @@ const List = ({ workItems, match }) => {
                   </div>
                 </motion.div>
                 <motion.div layout class='media-box border-gray-50 border-1'>
-                  <motion.img src={primaryMediaPath} />
+                  <motion.img class='' src={primaryMediaPath} />
+                  <Links selectedWork={item} />
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -114,7 +119,7 @@ const HomePage = ({ workItems }) => {
   // console.log('data from homepage: ', data);
 
   return (
-    <div class='flex flex-col mx-auto page-wrapper'>
+    <div class='flex flex-col mx-auto page-wrapper md:pl-6 md:text-2xl text-xl'>
       {/* <NavBar navState='home'></NavBar> */}
       {/* <motion.div
         class='border-black border-t-2 border-b-2'
@@ -123,31 +128,25 @@ const HomePage = ({ workItems }) => {
         initial={{ opacity: 0, height: 100 }}
         animate={{ opacity: 1, height: 0 }}
       ></motion.div> */}
-      <div class='hero-section outer-wrapper py-12'>
-        <div>
-          <p class='text-2xl mb-24 pl-4'>
-            Hi! I'm Fredo,
+      {/* <div class='splash-image'></div> */}
+      <div class='hero-section py-12  mx-auto'>
+        <div class='hero-inner'>
+          <p class=' pl-4 font-medium'>
+            Fredo Chen is a
             <br />
-            a creative technologist
-            <br />
-            based in Los Angeles
+            <div class='ml-4'>
+              frontend engineer
+              <br />
+              & creative developer
+              <br />
+              based in Los Angeles
+            </div>
           </p>
-        </div>
-        <div>
-          <p class='text-2xl pl-4'>
-            I like bringing ideas to life through code, in the form of
-            open-source software, websites, web apps, rich media banners, and
-            more!
-          </p>
-          <p class='text-2xl pl-4'>
-            I'm a full-stack JavasScript engineer specializing in building
-            performant and intuitive user interfaces with years of experience in
-            the open-source community and digital advertising space.'
-          </p>
+          <div></div>
         </div>
       </div>
-      <div class='work-section outer-wrapper'>
-        <div class='text-2xl my-12 pl-4'>Check out some of my work:</div>
+      <div class='work-section mx-auto'>
+        <div class=' tracking-wide mt-12 mb-8 pl-4'>Projects</div>
         <Router>
           <Route
             path={['/:id', '/']}
@@ -156,6 +155,18 @@ const HomePage = ({ workItems }) => {
             )}
           />
         </Router>
+      </div>
+      <div class='contact-section mx-auto my-24'>
+        <div class='tracking-wide pl-4'>Contact</div>
+        <ul class='contact-list'>
+          <li>
+            <a href='www.linkedin.com/in/fredochen'>linkedin</a>
+          </li>
+          <li>
+            <a href='https://github.com/fredosauce'>github</a>
+          </li>
+          <li></li>
+        </ul>
       </div>
     </div>
   );

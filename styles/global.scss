@@ -2,7 +2,7 @@ $max-width: 1024px;
 $min-width: 360px;
 
 html {
-  background-color: #171516dc;
+  background-color: #171516;
   color: #f3f3ff;
 }
 
@@ -44,14 +44,13 @@ html {
 
 .text-box {
   //min-width: 375px;
-  max-width: 475px;
+  max-width: 455px;
 }
 
 .work-item {
   position: relative;
-  height: 280px;
-  max-width: 35%;
-  min-width: 200px;
+  height: 110px;
+  width: 300px;
 }
 
 .overlay {
@@ -80,7 +79,7 @@ html {
 .work-item-wrapper {
   width: 100%;
   height: 100%;
-  background-color: rgba(44, 44, 44, 0.8);
+  background-color: rgba(38, 39, 38, 0.9);
 }
 
 .work-item-detail-wrapper {
@@ -119,9 +118,13 @@ html {
   height: 0;
 }
 
-.page-wrapper {
+.work-section,
+.contact-section {
+  width: 100%;
 }
-.page-wrapper::-webkit-scrollbar {
+
+.page-wrapper {
+  max-width: 1024px;
 }
 
 .work-section ul {
@@ -149,12 +152,41 @@ html {
 }
 
 .hero-section {
-  background-color: #555;
+  //background-color: #555;
+  // max-width: 800px;
+  width: 100%;
+  color: #ddd;
+  letter-spacing: 0.5px;
+}
+
+.hero-inner {
+  width: 100%;
+}
+
+.splash-image {
+  background-image: url('../public/trains.jpg');
+  height: 300px;
+  width: 35%;
+  top: 20px;
+  background-size: cover;
+  position: fixed;
+  right: 30%;
 }
 
 body {
-  font-family: system-ui, 'Univers LT Std', Helvetica, sans-serif;
+  font-family: 'Univers LT 55', 'Neue Haas Grotesk Display Pro', Helvetica,
+    sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+
+  text-rendering: optimizeLegibility;
+}
+
+.spectral {
+  font-family: 'Spectral';
+  // color: transparent;
+  // text-stroke: 2px #333;
+  // -webkit-text-stroke: 2px #333;
 }
 
 .work-detail {
@@ -167,7 +199,7 @@ body {
 
 @media (max-width: $max-width) {
   .media-box {
-    max-width: 500px;
+    max-width: 445px;
     margin-bottom: 20px;
   }
 }

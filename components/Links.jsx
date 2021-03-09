@@ -3,41 +3,43 @@ const Links = ({ selectedWork }) => {
   const RepoLink = () =>
     selectedWork.repo ? (
       <a
-        class='text-gray-400 text-sm hover:text-blue-400'
+        class='text-blue-400 text-sm hover:underline'
         href={selectedWork.repo}
         target='_blank'
       >
-        &nbsp;REPO&nbsp;
+        &nbsp;VIEW REPO&nbsp;
       </a>
     ) : null;
   const SiteLink = () =>
     selectedWork.siteUrl ? (
       <a
-        class='text-gray-400 text-sm hover:text-blue-400'
+        class='text-blue-400 text-sm hover:underline'
         href={selectedWork.siteUrl}
         target='_blank'
       >
-        &nbsp;SITE&nbsp;
+        &nbsp;VIEW SITE&nbsp;
       </a>
     ) : null;
 
   return (
     <>
-      <span class='text-gray-100'>
+      <div class='text-right mt-2'>
         {RepoLink() !== null && SiteLink() !== null ? (
           <>
-            [<RepoLink />] [<SiteLink />]
+            <RepoLink />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <SiteLink />
           </>
         ) : RepoLink() !== null ? (
           <>
-            [<RepoLink />]
+            <RepoLink />
           </>
         ) : SiteLink() !== null ? (
           <>
-            [<SiteLink />]
+            <SiteLink />
           </>
         ) : null}
-      </span>
+      </div>
     </>
   );
 };

@@ -1,34 +1,36 @@
+import { GitHub, ExternalLink } from 'react-feather';
+
 const Links = ({ selectedWork }) => {
   const primaryMediaPath = selectedWork.media[0];
   const RepoLink = () =>
     selectedWork.repo ? (
       <a
-        class='text-blue-400 text-sm hover:underline'
+        class='text-blue-400 text-xs hover:underline'
         href={selectedWork.repo}
         target='_blank'
       >
-        &nbsp;VIEW REPO&nbsp;
+        <GitHub size={18} />
       </a>
     ) : null;
   const SiteLink = () =>
     selectedWork.siteUrl ? (
       <a
-        class='text-blue-400 text-sm hover:underline'
+        class='text-blue-400 text-xs hover:underline'
         href={selectedWork.siteUrl}
         target='_blank'
       >
-        &nbsp;VIEW SITE&nbsp;
+        <ExternalLink size={18} />
       </a>
     ) : null;
 
   return (
     <>
-      <div class='text-right mt-2'>
+      <div class='text-center inline-block'>
         {RepoLink() !== null && SiteLink() !== null ? (
           <>
-            <RepoLink />
-            &nbsp;&nbsp;&nbsp;&nbsp;
             <SiteLink />
+            &nbsp;&nbsp;&nbsp;
+            <RepoLink />
           </>
         ) : RepoLink() !== null ? (
           <>

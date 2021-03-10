@@ -20,7 +20,7 @@ const closeSpring = {
 
 const Pill = ({ text }) => {
   return (
-    <div class='text-sm bg-gray-50 text-gray-700 inline-block font-semibold tech-pill mb-4 rounded-md mr-2'>
+    <div class='text-sm bg-gray-300 text-gray-900 inline-block font-semibold tech-pill mb-4 rounded-md mr-2'>
       {text}
     </div>
   );
@@ -40,7 +40,7 @@ const Overlay = ({ isSelected }) => (
 
 const List = ({ workItems, match }) => {
   return (
-    <ul class='flex flex-col space-y-6'>
+    <ul class='flex flex-row flex-wrap justify-center '>
       {workItems.map((item, index) => {
         // const isSelected =
         const isSelected = match.params.id === item.id;
@@ -53,7 +53,7 @@ const List = ({ workItems, match }) => {
             <Overlay isSelected={isSelected} />
             <motion.div
               className={`overflow-hidden relative work-item-wrapper rounded-md ${
-                isSelected && 'open rounded-3xl'
+                isSelected && 'open rounded-xl'
               }`}
               transition={isSelected ? openSpring : closeSpring}
               layout
@@ -84,17 +84,19 @@ const List = ({ workItems, match }) => {
                 <Link class='work-detail-link' to={'/' + item.id}></Link>
               </motion.div>
               <motion.div
-                class='px-8 lg:my-24 work-detail-outer mx-auto flex flex-col-reverse lg:flex-row items-center lg:space-x-8 my-16'
+                class='px-8 lg:my-24 work-detail-outer mx-auto flex flex-col-reverse lg:flex-row-reverse items-center justify-around my-16'
                 layout
               >
                 <motion.div class='text-box'>
                   <h1
                     class='text-2xl md:text-3xl cursor-pointer spectral inline-block mr-4'
                     dangerouslySetInnerHTML={{ __html: item.title }}
-                  ></h1>{' '}
+                  ></h1>
+                  <Links selectedWork={item} />
                   <p class='text-gray-400 text-lg'>
-                    {item.group} &nbsp;{item.year}&nbsp;{' '}
+                    {item.group}&nbsp;{item.year}&nbsp;{' '}
                   </p>
+
                   <p class='text-base leading-5 mt-4'>{item.blurb}</p>
                   <div class='mt-6 flex flex-row flex-wrap'>
                     {item.tech.map((techName, index) => (
@@ -104,7 +106,6 @@ const List = ({ workItems, match }) => {
                 </motion.div>
                 <motion.div layout class='media-box border-gray-50 border-1'>
                   <motion.img class='' src={primaryMediaPath} />
-                  <Links selectedWork={item} />
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -120,45 +121,48 @@ const HomePage = ({ workItems }) => {
   // console.log('data from homepage: ', data);
 
   return (
-    <div class='flex flex-col mx-auto page-wrapper pl-4 md:text-2xl text-xl'>
-      <div class='hero-section py-12  mx-auto'>
-        <div class='hero-inner'>
+    <div class='flex flex-col mx-auto page-wrapper px-4 sm:px-12 md:text-xl text-lg'>
+      <div class='hero-section flex flex-row justify-between py-4 sm:py-12  mx-auto'>
+        <div class='hero-inner left'>
           <p class='font-medium'>
             Fredo Chen is a
             <br />
-            <div class=''>
+            <div class='resume-link-wrapper'>
               frontend engineer
-              <br />
-              & creative developer
+              <br />& creative developer
               <br />
               based in Los Angeles
             </div>
           </p>
-          <p class='font-medium mt-16 '>Connect via</p>
+        </div>
+        <div class='contact-section'>
           <ul class='contact-list'>
             <li class=''>
               <a href='https://linkedin.com/in/fredochen' target='_blank'>
                 linkedin
               </a>
-              ,&nbsp;
+            </li>
+            <li class=''>
+              <a href='/chenfredo-resume.pdf' target='_blank'>
+                resumé
+              </a>
+            </li>
+            <li class=''>
               <a href='https://github.com/fredosauce' target='_blank'>
                 github
               </a>
-              ,
             </li>
-            <li class=''></li>
             <li class=''>
-              or&nbsp;
               <a href='mailto:chenfredo@gmail.com' target='_blank'>
                 email
               </a>
             </li>
           </ul>
-          <div></div>
         </div>
       </div>
+
       <div class='work-section mx-auto'>
-        <div class=' tracking-wide mt-12 mb-8'>Selected work</div>
+        <div class=' tracking-wide mt-12 mb-4 text-center'>Selected work</div>
         <Router>
           <Route
             path={['/:id', '/']}

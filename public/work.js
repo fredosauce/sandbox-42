@@ -7,7 +7,7 @@ export const workItems = [
     media: ['/reactype-lg.gif'],
     client: null,
     blurb:
-      'Visual prototyping tool that allows users to export their creations as TypeScript code templates. My role involved rebuilding the GUI as a drag-and-drop canvas, implementing the Next.js project export option, and validating development with unit testing',
+      'Prototyping tool that allows users to quickly mock-up layouts and export them as code templates in Typescript. My role involved rebuilding the GUI as a drag-and-drop canvas, extending export options to include Nextjs, and implementing unit tests',
     siteUrl: 'https://reactype.io/',
     repo: 'https://github.com/open-source-labs/ReacType',
     tech: ['react', 'typescript', 'materialui', 'jest', 'node', 'electron'],
@@ -35,7 +35,7 @@ export const workItems = [
     media: ['/ampm-lg.png'],
     client: '<span class="italic">ampm</span>',
     blurb:
-      'Total site refresh for ampm during the summer of 2018. Served as front-end lead and developed fully-responsive layouts with customizable gradient-based color themes. Worked closely with creatives and back-end engineers to integrate and launch',
+      'Served as front-end lead for ampm.com redesign and developed fully-responsive layouts with customizable color themes. Worked closely with creatives and back-end engineers to integrate and launch',
     siteUrl: 'https://www.ampm.com',
     repo: null,
     tech: ['html', 'sass', 'bootstrap', 'javascript', 'masonry.js', 'slick.js'],

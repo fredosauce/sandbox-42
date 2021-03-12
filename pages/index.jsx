@@ -52,7 +52,7 @@ const List = ({ workItems, match }) => {
           <li class='work-item' key={key}>
             <Overlay isSelected={isSelected} />
             <motion.div
-              className={`overflow-hidden relative work-item-wrapper rounded-md ${
+              className={`overflow-hidden relative work-item-wrapper rounded-md border-1  ${
                 isSelected && 'open rounded-xl'
               }`}
               transition={isSelected ? openSpring : closeSpring}
@@ -67,7 +67,7 @@ const List = ({ workItems, match }) => {
                 />
               </div>
               <motion.div
-                class={`flex flex-col flex-nowrap items-center work-item-detail-wrapper cursor-pointer ease-out space-x-4 bg-black bg-opacity-70 hover:bg-opacity-30 relative z-0 justify-center ${
+                class={`flex flex-col flex-nowrap items-center work-item-detail-wrapper cursor-pointer ease-out space-x-4 bg-black bg-opacity-60 hover:bg-opacity-80 relative z-0 justify-center ${
                   isSelected && ''
                 }`}
                 layout
@@ -76,10 +76,11 @@ const List = ({ workItems, match }) => {
                   +
                 </Link>
                 <div class='work-title-wrapper'>
-                  <h1
+                  <motion.h1
                     class='text-xl font-semibold cursor-pointer tracking-wider spectral'
+                    layout
                     dangerouslySetInnerHTML={{ __html: item.title }}
-                  ></h1>
+                  ></motion.h1>
                 </div>
                 <Link class='work-detail-link' to={'/' + item.id}></Link>
               </motion.div>
@@ -88,10 +89,11 @@ const List = ({ workItems, match }) => {
                 layout
               >
                 <motion.div class='text-box'>
-                  <h1
+                  <motion.h1
                     class='text-2xl md:text-3xl cursor-pointer spectral inline-block mr-4'
+                    layout
                     dangerouslySetInnerHTML={{ __html: item.title }}
-                  ></h1>
+                  ></motion.h1>
                   <Links selectedWork={item} />
                   <p class='text-gray-400 text-lg'>
                     {item.group}&nbsp;{item.year}&nbsp;{' '}
